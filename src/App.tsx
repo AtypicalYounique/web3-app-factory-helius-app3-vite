@@ -11,7 +11,7 @@ const BANK = [
     q:"What is Helius primarily known for?",
     options:["A cross-chain liquidity bridge","A Solana-native RPC and data platform","An Ethereum L2 rollup network","A liquid-staking token issuer"],
     answer:1,
-    explain:"Helius is a Solana-native developer platform — RPC nodes, APIs, real-time streaming, and transaction-landing tooling. Public summary on helius.dev." },
+    explain:"Helius is a Solana-native developer platform: RPC nodes, APIs, real-time streaming, and transaction-landing tooling. Public summary on helius.dev." },
   { id:"b2", topic:"company", level:"beginner",
     q:"Which blockchain does Helius focus on?",
     options:["Ethereum mainnet L1","Avalanche C-chain mainnet","Solana mainnet-beta","Bitcoin base-layer L1"],
@@ -21,12 +21,12 @@ const BANK = [
     q:"What does an RPC node primarily do for a Solana app?",
     options:["Lets clients read state and submit transactions","Validates blocks and produces protocol consensus","Stores end-user wallet private keys securely","Auto-mints SPL tokens on a fixed schedule"],
     answer:0,
-    explain:"RPC nodes are how clients interact with the chain — reading account state, submitting transactions, subscribing to events." },
+    explain:"RPC nodes are how clients interact with the chain: reading account state, submitting transactions, subscribing to events." },
   { id:"b4", topic:"streaming", level:"beginner",
     q:"What is a webhook in the context of a Solana RPC provider?",
     options:["A scheduled cron job that runs once per day","A push notification of on-chain events to a URL","A wallet plugin that signs transactions for users","A staking reward distribution method for pools"],
     answer:1,
-    explain:"Webhooks push on-chain events (transactions, swaps, sales) to a URL — used instead of polling." },
+    explain:"Webhooks push on-chain events (transactions, swaps, sales) to a URL, used instead of polling." },
   { id:"b5", topic:"mev-fees", level:"beginner",
     q:"What are Solana priority fees used for?",
     options:["Paying validators to skip your transaction","Increasing the chance your txn lands during congestion","Reducing the network gas fee for a transaction","Buying NFTs at a discount on marketplaces"],
@@ -41,7 +41,7 @@ const BANK = [
     q:"What does 'transaction landing' mean on Solana?",
     options:["The transaction being signed by a wallet","The transaction being indexed by an explorer","The transaction being broadcast over the gossip layer","The transaction being included in a confirmed block"],
     answer:3,
-    explain:"'Landing' means actually being included in a confirmed block — the metric that matters under congestion." },
+    explain:"'Landing' means actually being included in a confirmed block. That is the metric that matters under congestion." },
   { id:"b8", topic:"market", level:"beginner",
     q:"Which kinds of teams typically buy from a Solana RPC provider?",
     options:["Only retail wallet end users on Solana mainnet","Solana validators running consensus on mainnet","dApps, wallets, trading firms, and DeFi protocols","Solana block-explorer operators and indexers only"],
@@ -66,7 +66,7 @@ const BANK = [
     q:"What is a 'staked connection' in the Solana ecosystem?",
     options:["A WebSocket session that requires KYC","A way to lock tokens for governance voting","A send path routed through staked validators","A type of NFT used as collateral"],
     answer:2,
-    explain:"Some providers (Helius among them) offer staked connections on paid plans — sends route through a path with staked validators, improving landing odds during congestion." },
+    explain:"Some providers (Helius among them) offer staked connections on paid plans. Sends route through a path with staked validators, improving landing odds during congestion." },
 
   // ── INTERMEDIATE ──
   { id:"i1", topic:"company", level:"intermediate",
@@ -78,7 +78,7 @@ const BANK = [
     q:"How long is LaserStream's documented historical replay window?",
     options:["1 hour of recent slot history","6 hours of recent slot history","24 hours of recent slot history","7 days of recent slot history"],
     answer:2,
-    explain:"Helius documents up to 24 hours of historical replay on LaserStream — useful for consumer reconnect/backfill." },
+    explain:"Helius documents up to 24 hours of historical replay on LaserStream, useful for consumer reconnect/backfill." },
   { id:"i3", topic:"solana-rpc", level:"intermediate",
     q:"Which RPC method is commonly the most expensive to call repeatedly?",
     options:["getSlot for current slot height tracking","getProgramAccounts for full program scans","getRecentBlockhash for fee anchor lookups","getHealth for validator liveness checks"],
@@ -93,7 +93,7 @@ const BANK = [
     q:"Why does Helius's Priority Fee API recommend serialized-transaction-aware estimation?",
     options:["To reduce wallet confirmation popups for users","Fee competition depends on accounts the txn writes to","Because Solana's protocol mandates per-program fees","To make NFT mint transactions cheaper for end users"],
     answer:1,
-    explain:"The Priority Fee API uses the serialized transaction so it can recommend fees aware of the specific accounts/programs being written to — a more accurate signal than a global average." },
+    explain:"The Priority Fee API uses the serialized transaction so it can recommend fees aware of the specific accounts/programs being written to, a more accurate signal than a global average." },
   { id:"i6", topic:"company", level:"intermediate",
     q:"Which is a publicly listed Helius pricing tier?",
     options:["Hobby starter tier","Developer paid tier","Maker community tier","Hacker indie tier"],
@@ -123,7 +123,7 @@ const BANK = [
     q:"What does Helius mean by 'Enhanced WebSockets'?",
     options:["A separate non-Solana streaming protocol","A wallet feature for transaction confirmations","A Layer 2 network connected to Solana","WebSockets powered by the LaserStream backend"],
     answer:3,
-    explain:"Public docs say Enhanced WSS is now powered by LaserStream infra — so they share redundancy and failover." },
+    explain:"Public docs say Enhanced WSS is now powered by LaserStream infra, so they share redundancy and failover." },
   { id:"i12", topic:"ops", level:"intermediate",
     q:"What is one common reason archive nodes are expensive to operate on Solana?",
     options:["They are forbidden by the Solana protocol","Solana ledger growth makes archive history huge","They require Solana Foundation–mandated hardware","They cannot use any local storage at all"],
@@ -138,7 +138,7 @@ const BANK = [
     explain:"gRPC / Geyser is generally the most efficient transport for high-throughput Solana state fan-out; WebSockets and polling fall over economically at scale." },
   { id:"e2", topic:"mev-fees", level:"expert",
     q:"Combining priority fees with staked connections is most effective when…",
-    options:["The network is empty and uncontested","The network is congested and ordering matters","Only on devnet or testnet environments","Never — one alone is always sufficient"],
+    options:["The network is empty and uncontested","The network is congested and ordering matters","Only on devnet or testnet environments","Never, one alone is always sufficient"],
     answer:1,
     explain:"Both are worth most under congestion; staked path increases delivery odds while priority fees increase scheduling priority once delivered." },
   { id:"e3", topic:"ops", level:"expert",
@@ -150,7 +150,7 @@ const BANK = [
     q:"Why does a 24h replay window simplify consumer design?",
     options:["It eliminates all on-chain reorganization risk","Consumers can resume from a slot, not rebuild state","It removes the need for any retry logic","It makes the streaming API entirely free"],
     answer:1,
-    explain:"With replay, reconnection is 'resume from last slot' instead of 'rebuild state from RPC + reconcile' — far less brittle." },
+    explain:"With replay, reconnection is 'resume from last slot' instead of 'rebuild state from RPC + reconcile', far less brittle." },
   { id:"e5", topic:"market", level:"expert",
     q:"Which workload pattern tends to most justify dedicated infrastructure over shared cloud for Solana RPC?",
     options:["Random ad-hoc analytics scripts and one-offs","High-throughput, latency-sensitive production hot paths","Hobby projects with intermittent monthly traffic","Static marketing landing pages and brochures"],
@@ -175,10 +175,10 @@ const BANK = [
     q:"For a perp DEX or market maker, the most painful symptom of poor RPC + landing is usually…",
     options:["Slightly slower internal analytics dashboards","Missed fills, stale quotes, and slippage spikes","Smaller marketing reach to retail traders","Cosmetic UI bugs in the trading frontend"],
     answer:1,
-    explain:"Trading workloads convert RPC variance directly into PnL — missed fills and stale quotes cost real money." },
+    explain:"Trading workloads convert RPC variance directly into PnL. Missed fills and stale quotes cost real money." },
   { id:"e10", topic:"company", level:"expert",
     q:"Which describes Helius's documented LaserStream redundancy model?",
-    options:["A single server backed by a single Solana node","Redundant servers backed by multiple Solana nodes","No redundancy — single point of failure by design","Cross-chain replication across multiple L1 chains"],
+    options:["A single server backed by a single Solana node","Redundant servers backed by multiple Solana nodes","No redundancy, single point of failure by design","Cross-chain replication across multiple L1 chains"],
     answer:1,
     explain:"Helius's public LaserStream page describes per-region redundancy: multiple servers backed by multiple Solana nodes with automatic failover." },
   { id:"e11", topic:"ops", level:"expert",
@@ -190,7 +190,7 @@ const BANK = [
     q:"Which is generally a poor reason to switch RPC providers?",
     options:["Repeated landing failures during congestion windows","Cheap headline price with no SLA or staked path","Need for dedicated streaming capacity at scale","Region coverage gaps for end-user latency"],
     answer:1,
-    explain:"Headline price with no operational story is a common trap — switching saves dollars and loses landings, which costs more in user trust." },
+    explain:"Headline price with no operational story is a common trap. Switching saves dollars and loses landings, which costs more in user trust." },
 ];
 
 const TOPIC_LABEL = {
@@ -396,8 +396,8 @@ function App() {
   const headline =
     pct >= 90 ? "Genuinely sharp on Helius and Solana RPC." :
     pct >= 70 ? "Solid working understanding." :
-    pct >= 50 ? "Reasonable grasp — some good rabbit holes ahead." :
-    "Plenty of room to learn — this stuff rewards curiosity.";
+    pct >= 50 ? "Reasonable grasp. Some good rabbit holes ahead." :
+    "Plenty of room to learn. This stuff rewards curiosity.";
 
   // Best/worst topics
   const topicsSorted = Object.entries(topicBreakdown).map(([t, v]) => ({ t, ...v, pct: v.correct / v.total }));
@@ -435,14 +435,14 @@ function App() {
       <div className="card">
         <h2>What you understand well</h2>
         <div style={{ color: "#cdd3df", fontSize: 14, lineHeight: 1.55 }}>
-          {strong.length ? strong.join(" · ") : "Nothing dominant yet — try a longer quiz at a higher level."}
+          {strong.length ? strong.join(" · ") : "Nothing dominant yet. Try a longer quiz at a higher level."}
         </div>
       </div>
 
       <div className="card">
         <h2>What's worth learning next</h2>
         <div style={{ color: "#cdd3df", fontSize: 14, lineHeight: 1.55 }}>
-          {weak.length ? weak.join(" · ") : "All topics roughly even — the expert tier will pressure-test the edges."}
+          {weak.length ? weak.join(" · ") : "All topics roughly even. The expert tier will pressure-test the edges."}
         </div>
       </div>
 
