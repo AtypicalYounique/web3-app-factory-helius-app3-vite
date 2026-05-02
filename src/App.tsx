@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useRef } from "react";
 import "./styles.css";
+import { BRAND } from "./brand";
 
 // Question schema: { id, topic, level, q, options[], answer (idx), explain }
 // Topics: company, solana-rpc, streaming, mev-fees, ops, market
@@ -281,12 +282,24 @@ function App() {
       {options.map(o => (
         <button key={o.value} className={"pill " + (value === o.value ? "active" : "")} onClick={() => set(o.value)} type="button">{o.label}</button>
       ))}
+    <footer className="attribution">{BRAND.attribution}</footer>
     </div>
   );
 
   if (stage === "setup") {
     return (
       <div className="wrap">
+      <header className="brand-bar">
+        <a
+          href={BRAND.homepage}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="brand-logo"
+          aria-label={BRAND.company}
+          dangerouslySetInnerHTML={{ __html: BRAND.logoSvg }}
+        />
+        <span className="brand-chip">Independent tool</span>
+      </header>
         <div className="eyebrow">A quiz · For DevRel, sales enablement, partner education</div>
         <h1>Helius & Solana RPC Infrastructure Quiz</h1>
         <p className="lede">A short, polite test of how well you understand Helius's products and the Solana RPC layer they sit on. Drawn from publicly documented Helius features (LaserStream, DAS API, Priority Fee API, Enhanced WebSockets, Webhooks, staked connections) and broader Solana infra concepts.</p>
@@ -305,6 +318,7 @@ function App() {
         <div className="footer-note">
           Some company-specific details come directly from Helius's public docs and pricing page. Where public detail is limited, questions blend Helius context with broader Solana infrastructure education. No data is collected or stored.
         </div>
+      <footer className="attribution">{BRAND.attribution}</footer>
       </div>
     );
   }
@@ -315,6 +329,17 @@ function App() {
     const reveal = revealed[q.id] !== undefined;
     return (
       <div className="wrap">
+      <header className="brand-bar">
+        <a
+          href={BRAND.homepage}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="brand-logo"
+          aria-label={BRAND.company}
+          dangerouslySetInnerHTML={{ __html: BRAND.logoSvg }}
+        />
+        <span className="brand-chip">Independent tool</span>
+      </header>
         <div className="progress"><div style={{ width: `${((idx)/qs.length)*100}%` }} /></div>
         <div className="eyebrow">Question {idx+1} of {qs.length} · {TOPIC_LABEL[q.topic]} · {q.level}</div>
         <div className="card qcard">
@@ -333,6 +358,7 @@ function App() {
         <div style={{ display:"flex", gap: 10 }}>
           <button className="btn secondary" onClick={restart}>Restart</button>
         </div>
+      <footer className="attribution">{BRAND.attribution}</footer>
       </div>
     );
   }
@@ -353,6 +379,17 @@ function App() {
 
   return (
     <div className="wrap">
+      <header className="brand-bar">
+        <a
+          href={BRAND.homepage}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="brand-logo"
+          aria-label={BRAND.company}
+          dangerouslySetInnerHTML={{ __html: BRAND.logoSvg }}
+        />
+        <span className="brand-chip">Independent tool</span>
+      </header>
       <div className="eyebrow">Results</div>
       <h1>{correctCount} / {qs.length} correct · {pct}%</h1>
       <p className="lede">{headline}</p>
@@ -391,6 +428,7 @@ function App() {
       <div className="footer-note">Helius-specific detail is sourced from public documentation and pricing. Broader Solana infrastructure questions reflect widely discussed community concepts (priority fees, staked connections, Geyser/gRPC, archive node economics).</div>
 
       <div className={"toast " + (toast ? "show" : "")}>Results copied to clipboard</div>
+    <footer className="attribution">{BRAND.attribution}</footer>
     </div>
   );
 }
